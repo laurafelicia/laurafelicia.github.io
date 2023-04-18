@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Module 2: Interactive Devices</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			.image img {
+			  max-width: 50%;
+			  height: auto;
+			  display: block;
+			  margin: 0 auto;
+			}
+		  </style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Module 1: Generative Art</h1>
+							<style>
+								.image.main video {
+								  width: 100%;
+								  height: auto;
+								}
+							  </style>
+							<span class="image main">
+								<video controls>
+								  <source src="videos/interactive-device.mp4" type="video/mp4">
+								  Your browser does not support the video tag.
+								</video>
+							  </span>
+							<h2>Introduction</h2>
+							<p>For the interactive devices module in BC3930: Creative Embedded Systems, we repurpose our ESP32-powered TTGO T1 microcontrollers from the first module, a joystick and a button which we connect using wires on a breadboard. The objective is to create an interactive device that takes in the data detected by the hardware in the form of joystick movement and button press, and then handles the data to run a program on my computer.</p>
+							<p>For my idea, I wanted to create a virtual claw machine, in which the joystick and the button would fulfil their conventional duties - the joystick controls the claw, and the button signals the claw to drop and retrieve an item. This process would involve connecting the components to each other in a circuit, 3D designing and printing an enclosure, and then assembling the components within the enclosure.</p>
+							<h2>Motivation</h2>
+							<p>I wanted to work on my 3D modelling skills further for this module, so I thought I could do something more than use a cardboard box and punch holes in them. Claw machines were my favorite thing as a child, and I loved how simple their mechanism was. It was a simple movement using the joystick, and then a button that accomplishes one function: to retrieve a toy if it was within reach. </p>
+							<p>I used to play virtual claw machines using mobile apps on my parents’ tablet when I was 10, so it would be nice to recreate it now. I’ve always loved the fun colorful vibe of a claw machine and I want to convey that same sense of color and vibrancy in this project. From there, I drafted a simple set of logical computations that a claw machine would perform. Since we are working with a computer screen, I simplified my logic to work on the 2D plane rather than 3D. These details will be explained further in the next section.</p>
+							<p>I also want to explore my artistic and creative side more for this project, so I devoted a significant amount of time to create design assets and the interface of my claw machine on Photoshop, which I loaded onto Processing. The following are my designs inspired by cute plush illustrations I found on Pinterest:</p>
+							<span class="image">
+								<img src="images/module-2-photoshop.png" alt="" />
+								<img src="images/module-2-design-assets.png" alt="" />
+							</span>
+
+							<h2>Implementation & Logic</h2>
+							<p>The first step of the project is to read in the data from the joystick and button on Arduino IDE. I had to make sure that the pin numbers match on the breadboard with what I wrote on Arduino. Getting the orientation correct for each component was a bit tricky, so it involved a few trials and errors. More technical details will be explained in the technical document which can be found here.</p>
+							<span class="image">
+								<img src="images/module-2-1.png" alt="" />
+							</span>
+							<p>The next step is to hook up the hardware with Processing IDE in order to handle the data and generate some graphics. Working with Processing was very tricky, and a lot of the problems I ran into will be detailed in the section after this. I had to do a lot of debugging, place print commands in various different places, and a lot more trials and errors.</p>
+							<span class="image">
+								<img src="images/module-2-2.png" alt="" />
+							</span>
+							<p>The logic of the claw machine is ultimately a simple one. To simplify the implementation, my claw machine will be able to pick up one specific toy which is placed at a randomly generated x-value along the y-plane at around 25% the height of the canvas. Initially, I wanted to simulate a 3D plane within the 2D canvas by randomizing x and y coordinates for the positions of the “toys” within a certain range of the canvas height, but I decided this implementation is more energy and time efficient. The game will involve movement along the horizontal plane by the claw, which is controlled by the joystick. I found that our joystick gave choppy readings, so I made the decision of only implementing the horizontal movement to make the game easier to physically control. </p>
+							<p>When the button is pressed, my code will calculate the distance between the centre of the claw and the centre of the toy. The claw will then drop - If the difference in x-value is 30 pixels or below, the claw will be able to pick the toy up and retrieve it. Then, the round will finish and the player can restart a new game. Otherwise, the claw won’t be able to pick up the toy if it is too far, and the player needs to continue playing in order to clear the round.</p>
+							<p>The following is an initial sketch of the claw machine I created on Processing using a claw flat icon and a red ball as placeholders. I also used my arrow keys and space bars to implement the logic in the first stage, before replacing the inputs with my physical sensors. I did this by the advice of my professor in order to get the logic down first and make sure everything is working well.</p>
+							<span class="image">
+								<img src="images/module-2-sketch.png" alt="" />
+							</span>
+							<p>Below is my final interface design which I created using Procreate and Adobe Photoshop.</p>
+							<span class="image">
+								<img src="images/module-2-clawmachine.png" alt="" />
+							</span>
+
+							<h2>Technical Issues</h2>
+							<p>As mentioned earlier, reading in data from the ESP32 on Arduino was quite challenging. My button was oriented wrongly and could not read the digital value of the button. Using a breadboard was also new to me, so it took a white for me to grasp the concept of voltage power and ground. However, I was ultimately able to ensure that all my components were working and my setup was able to detect, read in and display data. Ultimately, I also made the decision to solder my ESP32, joystick and wires to wires in order to fit them into the enclosure I built.</p>
+							<span class="image">
+								<img src="images/module-2-solder.png" alt="" />
+							</span>
+							<p>However, I ran into multiple technical issues in Processing, which required me to revise a number of my initial implementations. First, accessing the values of the joystick and the button took a long time of trial and error, because Processing was not parsing substrings as expected. Eventually, I received help from a classmate, Andrea, to read in my values properly. I was also getting null values by default outside of the for-loop I made to read in the data in real-time, so I had to include the draw function within the loop itself.</p>
+							<p>Furthermore, I wanted to keep my canvas size at 600x600 because otherwise the rendering became very laggy and I was not able to generate graphics. However, the joystick took in values between the range of 0 to 5000, so this canvas size is too small to incorporate this region. Hence, I needed to offset my values. Subtracting everything by 4500 does not solve the problem of being out of the canvas bounds, because the graphics continue moving outside the frame when the joystick is moved. Hence, I decided to implement movement in the way that if the x value was above a certain number, the claw will move towards the right in steady increments of 5 pixels each time. Likewise, if the value is below a certain number, the claw will move towards the left. This helped prevent the graphics from rendering too choppily, although the values of the joystick are not reflected precisely as they were.</p>
+							<p>I also spent a significant amount of time on the collision detection part of the game. I am not very familiar with gaming libraries within Java, and given the timeframe, I thought it would be easier for me to code out my own logic. Implementing the functions “isDropping” and “isLifting” took me a while to figure out, because I want the claw to drop and lift with a seamless animated movement. Ultimately, I made the claw move with increments of 3 pixels which was smooth enough to form an animated look. Figuring out how to pick up the prize was also quite challenging, because I had to experiment with the most optimal distance to indicate a successful collision. It also took me quite a few tries to actual lift the prize off the baseline and create the animation of it being lifted up with the claw, because my code was not detecting the collision properly. The following is a snippet of my code. </p>
+							<span class="image">
+								<img src="images/module-2-codesnippet.png" alt="" />
+							</span>
+							<h2> Conclusion </h2>
+							<p>This project was ultimately quite exhausting, and it involved a lot of trial and error, and oftentimes, a lot of uncertainty. I am happy to gain experience on sensors, to be able to get an interactive device working, and also to pick up some 3D modelling skills. I learned that a lot of the times that felt like breakthroughs introduced a new set of issues, and this teaches me how truly complex the world of creative embedded systems is. It’s not only about creating unconventional art, it’s also becoming comfortable with the very real fact that not everything will work out your way, to be able to find peace with it and work around it.</p>
+							<p>I almost gave up in the middle of this project because too many issues were popping up, but I’m glad that I did not and I was able to show people my work. Being able to create nostalgic, colorful things using code makes me feel happy and prepares me for more embedded systems projects in the future. </p>
+							<p>The technical specification can be found <a href="https://github.com/laurafelicia/laurafelicia.github.io/blob/main/README.txt">here</a></p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -65,12 +65,12 @@
 								  height: auto;
 								}
 							  </style>
-							<!-- <span class="image main">
+							<span class="image main">
 								<video controls>
-								  <source src="videos/generative-art-1.mp4" type="video/mp4">
+								  <source src="videos/synthesizer.mp4" type="video/mp4">
 								  Your browser does not support the video tag.
 								</video>
-							  </span> -->
+							  </span>
 							<h2>Introduction</h2>
 							<p>For the final project in BC3930: Creative Embedded Systems, we were free to create any artwork that makes use of our ESP32-powered TTGO T1 microcontrollers. For my project, I wanted to create an interactive synthesizer painting. My enclosure is my painted canvas, and the conductive paint acts as electric circuits along with copper tape. I wanted to get creative with the hardware choices, so after some research, I found that touching conductive paint can create a voltage disruption in the circuit, due to the internal resistance of the human body which acts as a potentiometer or voltage divider. Hence, the idea is that, when a person touches the area of conductive paint, it sends an analog signal to the ESP32, which in turn communicates to my laptop through the WebSerial API. The API reads values in the serial monitor and outputs sounds accordingly.  </p>
 							<h2>Motivation</h2>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Final Project: Synthesizer Painting</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Final Project: Synthesizer Painting</h1>
+							<style>
+								.image.main video {
+								  width: 100%;
+								  height: auto;
+								}
+							  </style>
+							<span class="image main">
+								<video controls>
+								  <source src="videos/generative-art-1.mp4" type="video/mp4">
+								  Your browser does not support the video tag.
+								</video>
+							  </span>
+							<h2>Introduction</h2>
+							<p>For the final project in BC3930: Creative Embedded Systems, we were free to create any artwork that makes use of our ESP32-powered TTGO T1 microcontrollers. For my project, I wanted to create an interactive synthesizer painting. My enclosure is my painted canvas, and the conductive paint acts as electric circuits along with copper tape. I wanted to get creative with the hardware choices, so after some research, I found that touching conductive paint can create a voltage disruption in the circuit, due to the internal resistance of the human body which acts as a potentiometer or voltage divider. Hence, the idea is that, when a person touches the area of conductive paint, it sends an analog signal to the ESP32, which in turn communicates to my laptop through the WebSerial API. The API reads values in the serial monitor and outputs sounds accordingly.  </p>
+							<!-- <h2>Motivation</h2>
+							<p>As the initial theme of the art is Valentine’s day, I knew I wanted to write some endearing and romance-related words on my display. At first, I came up with a simple flashing sequence, saying “will you be my valentine?”, followed by a heart that I had manually plotted that changes randomly into a range of colors. However, I wanted to get a little more creative and incorporate more randomness.</p>
+							<p>I had recently watched a number of old rom-com movies, and it inspired me to create an old-school, vintage feel to my art. I was reminded about old DVD screensavers where the logo would float across the screen and change colors when it hits the edge of the screen. My larger creative vision for this project involves trying to make people feel reminiscent of the past in the mood of Valentine. I decided I would change the logo into a love-related, movie-esque line, and I settled on “you look like a movie”.</p>
+							<h2>Technical Issues</h2>
+							<p>There isn’t much documentation I could find on past TFT_eSPI art projects, so coming up with the code to manifest my creative vision into reality was the biggest obstacle. Working on an M2, I had to download a separate port to upload my code from Arduino to the ESP32. Even then, sometimes the code I uploaded wouldn’t appear on the screen and I had to reset my ESP32. Visually, the elements I generated on the screen needed a lot of tinkering in terms of spacing and color.</p>
+							<p>A major hurdle I stumbled upon was that the rectangle I enclosed my text in was flashing and flickering as it moved across the screen, even after I adjusted the delay value. This is because the screen resets after each iteration of position in the screen. To get around this, I adjusted my initial vision and decided to not wipe the screen after each iteration. In the end, I had a rainbow trail as my text moved across the screen – I ended up liking this version a lot more.</p> -->
+							<style>
+								.image.main video {
+								  width: 100%;
+								  height: auto;
+								}
+							  </style>
+							<span class="image main">
+								<video controls>
+								  <source src="videos/generative-art-2.mp4" type="video/mp4">
+								  Your browser does not support the video tag.
+								</video>
+							  </span>
+							<h2> Conclusion </h2>
+							<p>Zooming back out to the bigger picture, it is very common for art to not turn out the way we initially envisioned it to be. This project taught me the hurdles and the ways we try to work around it, comprises the art. I find that, in the end, the artwork represented something that was more authentic to me. Seeing our makeshift installation come to life, I felt a visceral sense of wonder seeing my artwork light up amongst others.</p>
+							<p>The technical specification can be found <a href="https://github.com/laurafelicia/laurafelicia.github.io/tree/main/module-1">here.</a></p>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

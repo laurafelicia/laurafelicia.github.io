@@ -57,21 +57,26 @@
 								  height: auto;
 								}
 							  </style>
-							<span class="image main">
+							<!-- <span class="image main">
 								<video controls>
 								  <source src="videos/generative-art-1.mp4" type="video/mp4">
 								  Your browser does not support the video tag.
 								</video>
-							  </span>
+							  </span> -->
 							<h2>Introduction</h2>
 							<p>For the final project in BC3930: Creative Embedded Systems, we were free to create any artwork that makes use of our ESP32-powered TTGO T1 microcontrollers. For my project, I wanted to create an interactive synthesizer painting. My enclosure is my painted canvas, and the conductive paint acts as electric circuits along with copper tape. I wanted to get creative with the hardware choices, so after some research, I found that touching conductive paint can create a voltage disruption in the circuit, due to the internal resistance of the human body which acts as a potentiometer or voltage divider. Hence, the idea is that, when a person touches the area of conductive paint, it sends an analog signal to the ESP32, which in turn communicates to my laptop through the WebSerial API. The API reads values in the serial monitor and outputs sounds accordingly.  </p>
-							<!-- <h2>Motivation</h2>
-							<p>As the initial theme of the art is Valentine’s day, I knew I wanted to write some endearing and romance-related words on my display. At first, I came up with a simple flashing sequence, saying “will you be my valentine?”, followed by a heart that I had manually plotted that changes randomly into a range of colors. However, I wanted to get a little more creative and incorporate more randomness.</p>
-							<p>I had recently watched a number of old rom-com movies, and it inspired me to create an old-school, vintage feel to my art. I was reminded about old DVD screensavers where the logo would float across the screen and change colors when it hits the edge of the screen. My larger creative vision for this project involves trying to make people feel reminiscent of the past in the mood of Valentine. I decided I would change the logo into a love-related, movie-esque line, and I settled on “you look like a movie”.</p>
+							<h2>Motivation</h2>
+							<p>My vision for this project is to create an immersive and multisensory experience for the viewer. I want to transport them into a world where they are not just passive observers but active participants in the creation of art. I want them to explore the painting, touch different areas, and be delighted by the unexpected sounds that emerge. By making this painting, I create a dynamic interface that responds to human touch to challenge the traditional mediums of art. </p>
+							<p>I also appreciate the fact that art does not have to be convoluted - I had a lot of fun making this project and using my basic knowledge of circuits to create something new. It feels almost magical that touching a canvas can trigger electrical signals and cause a change in my laptop. The whole experience of it is also unique to whoever the current audience is, depending on which circuits they touch and notes they produce. The following is a high-fidelity sketch of my canvas, which was then streamlined in the actual implementation from 6 to 4 circuits.</p>
+							<h2>Implementation & Logic</h2>
+							<p>To make it easier for myself, the first step of the project is to initialize a webpage that is able to take in a trigger and output a sound. This way, I can just modify the html code later on to take in input from WebSerial, which is the trickier part to figure out. I used the Tone.js library to generate my sounds. The following is a code snippet of a loop that is constantly playing a note at 0% volume, but breaks out and enters a new loop that plays the note at 100% volume when a change is detected - in this case, the change came from the button ‘A’ being pressed down. </p>
+							<p>The next step is the bulk of the work - preparing the canvas and the artwork. With spring transitioning into summer, I was thinking a lot about flowers recently and decided to incorporate them into my painting. Using a 5”x7” canvas, I sketched out a few funky lines which will act as either a circuit, or a divider between circuits. I also sketched out flowers for added appeal. I then marked out 4 lines which will act as the circuits</p>
+							<p>Using the conductive paint from Bare Conductive, I painted over these lines, before going over the rest of the canvas with acrylic paint. After letting it dry, I pasted copper tape along the back of the canvas to connect the ends of the circuit paths in front to form a complete circuit.  After that, I soldered wires onto the copper tape at specific points to establish connections for each circuit.</p>
+							<p>To set up the connection between hardware and software, I connected the wires from the canvas in the breadboard at 4 different ESP32 pins, and then I used AnalogRead to load the voltage readings on each circuit. The values being read ranged from 300 to 1000 when the wires are connected to a complete circuit. When the wires are disconnected, the analog values would drop significantly to around 70, and sometimes 0. The voltage values read by the ESP32 during analog readings come from the changes in resistance within the conductive paint circuits on the canvas. When a person touches the conductive paint, it creates disruptions in the electrical potential, resulting in voltage changes. I ultimately decided to use wired connection instead of wireless given the time frame, and given that I only had 4 wires to connect it felt much easier.</p>
+							<p>On the laptop, a web page or web application is set up to receive and process the data transmitted by the ESP32. This webpage utilizes the WebSerial API, which allows communication between the laptop's web browser and the ESP32 microcontroller via the serial port. JavaScript code is written on the webpage to listen for incoming data from the ESP32 through the WebSerial API. The webpage is set to turn up the volume of a note when a change in voltage is detected at the serial monitor. As a benchmark, I set this to the analogue value of each circuit to be less than 150. </p>
 							<h2>Technical Issues</h2>
-							<p>There isn’t much documentation I could find on past TFT_eSPI art projects, so coming up with the code to manifest my creative vision into reality was the biggest obstacle. Working on an M2, I had to download a separate port to upload my code from Arduino to the ESP32. Even then, sometimes the code I uploaded wouldn’t appear on the screen and I had to reset my ESP32. Visually, the elements I generated on the screen needed a lot of tinkering in terms of spacing and color.</p>
-							<p>A major hurdle I stumbled upon was that the rectangle I enclosed my text in was flashing and flickering as it moved across the screen, even after I adjusted the delay value. This is because the screen resets after each iteration of position in the screen. To get around this, I adjusted my initial vision and decided to not wipe the screen after each iteration. In the end, I had a rainbow trail as my text moved across the screen – I ended up liking this version a lot more.</p> -->
-							<style>
+							<p>UPDATING WITHIN 24 HOURS -- SOME FILES LOST.</p>
+							<!-- <style>
 								.image.main video {
 								  width: 100%;
 								  height: auto;
@@ -85,7 +90,7 @@
 							  </span>
 							<h2> Conclusion </h2>
 							<p>Zooming back out to the bigger picture, it is very common for art to not turn out the way we initially envisioned it to be. This project taught me the hurdles and the ways we try to work around it, comprises the art. I find that, in the end, the artwork represented something that was more authentic to me. Seeing our makeshift installation come to life, I felt a visceral sense of wonder seeing my artwork light up amongst others.</p>
-							<p>The technical specification can be found <a href="https://github.com/laurafelicia/laurafelicia.github.io/tree/main/module-1">here.</a></p>
+							<p>The technical specification can be found <a href="https://github.com/laurafelicia/laurafelicia.github.io/tree/main/module-1">here.</a></p> -->
 						</div>
 					</div>
 

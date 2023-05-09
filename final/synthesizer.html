@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Final Project: Synthesizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.min.js"></script>
+    <script>
+      const synth1 = new Tone.Synth().toDestination();
+      const synth2 = new Tone.Synth().toDestination();
+      const synth3 = new Tone.Synth().toDestination();
+      const synth4 = new Tone.Synth().toDestination();
+
+      const threshold = 300; 
+
+      async function initSerial() {
+        try {
+          const port = await navigator.serial.requestPort();
+          await port.open({ baudRate: 115200 });
+
+          const reader = port.readable.getReader();
+
+          while (true) {
+            const { value, done } = await reader.read();
+
+            if (done) {
+              break;
+            }
+
+            const decoder = new TextDecoder();
+            const data = decoder.decode(value);
+
+            // Parse the received data to extract analog values
+            const values = data.split(',');
+
+            if (values.length === 4) {
+              const analog1 = parseInt(values[0]);
+              const analog2 = parseInt(values[1]);
+              const analog3 = parseInt(values[2]);
+              const analog4 = parseInt(values[3]);
+
+              // Check for disruption and play notes accordingly
+              if (analog1 < threshold) {
+                synth1.volume.value = 0;
+              } else {
+                synth1.volume.value = -100;
+              }
+
+              if (analog2 < threshold) {
+                synth2.volume.value = 0;
+              } else {
+                synth2.volume.value = -100;
+              }
+
+              if (analog3 < threshold) {
+                synth3.volume.value = 0;
+              } else {
+                synth3.volume.value = -100;
+              }
+
+              if (analog4 < threshold) {
+                synth4.volume.value = 0;
+              } else {
+                synth4.volume.value = -100;
+              }
+            }
+          }
+
+          await port.close();
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      // Start the serial connection when the page loads
+      window.addEventListener('load', () => {
+        initSerial();
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Disruption Synthesizer</h1>
+    <p>Disrupt the circuits to control the volume of the notes.</p>
+    <script>
+      const loop = new Tone.Loop(() => {
+        // Play the notes simultaneously with the specified volume
+        synth1.triggerAttackRelease("C4", "8n");
+        synth2.triggerAttackRelease("D4", "8n");
+        synth3.triggerAttackRelease("E4", "8n");
+        synth4.triggerAttackRelease("F4", "8n");
+      }, "8n");
+
+      Tone.Transport.start();
+      loop.start();
+    </script>
+  </body>
+</html>

@@ -94,23 +94,12 @@
 							<h2>Technical Issues</h2>
 							<p>I ran into several unexpected issues. During the development of my project, I encountered an issue with inconsistent and noisy analog readings. I think the problem was due to factors like poor conductivity of the paint, variations in the pressure applied during touch interactions, and external interference affecting the circuit signals. To address this, I made sure there was proper contact between the conductive paint and the wires by soldering them onto the copper tape. I then checked for any loose connections or gaps that could disrupt the flow of current. Additionally, I also applied multiple layers of paint to enhance the overall conductivity.</p>
 							<p>I also had an issue regarding unresponsiveness or noticeable delays in the interaction between user touch on the conductive paint and the resulting changes on the webpage. The problem arose due to various factors that affected the overall responsiveness of the system. One primary factor was the latency introduced by the communication between the ESP32 microcontroller and the laptop via the serial port and WebSerial API. This communication pathway, although efficient, introduced some inherent delay. Ultimately, for the scope of the project, I decided the delay is permissible.</p>
-							<p>For the messages being sent through the serial port, I encountered difficulties in accurately adjusting the sound triggers based on the received analog values. The presence of significant noise in the signals made it challenging to establish precise thresholds for triggering the sounds. To mitigate the impact of noise and ensure more reliable sound triggering, I tried to implement a filtering mechanism. Eventually, I decided to edit my code so that the laptop outputs sounds only when the analog values are below a certain benchmark - in this case I set it to be 150 as I found that this was the most reasonable window.</p>
+							<p>For the messages being sent through the serial port, I encountered difficulties in accurately adjusting the sound triggers based on the received analog values. The presence of significant noise in the signals made it challenging to establish precise thresholds for triggering the sounds. To mitigate the impact of noise and ensure more reliable sound triggering, I tried to implement a filtering mechanism. Eventually, I decided to edit my code so that the laptop outputs sounds only when the analog values are below a certain benchmark - in this case I set it to be 300 as I found that this was the most reasonable window.</p>
+							<span class="image">
+								<img src="images/final-code.png" alt="" />
+							</span>
 							<h2>Conclusion</h2>
 							<p>Throughout the development process, I encountered various challenges and learned several key lessons. One major takeaway from this project is the significance of meticulous circuit design and implementation. Ensuring proper contact between the conductive paint and the wires, optimizing conductivity, and addressing noise issues were crucial steps in achieving reliable analog readings. The attention to detail in hardware setup and troubleshooting was essential for creating a robust and responsive interactive system. Moreover, working with communication protocols between the ESP32 and the laptop provided valuable insights into optimizing data transfer and minimizing latency. Understanding the intricacies of the serial port and utilizing the WebSerial API effectively enhanced the responsiveness and overall performance of the project. Another important learning point was the need for iterative code refinement. By continuously testing, debugging, and adjusting the code, I was able to fine-tune the sound triggers, filter out noise, and create a more immersive user experience. This iterative process fostered a deeper understanding of sound synthesis, analog-to-digital conversion, and data interpretation. Moving forward, I definitely want to undertake more art-tech fusion projects like such, although sometimes figuring out what went wrong is an extremely tedious process. Nonetheless, the whole experience always comes out to be rewarding.  </p>
-							<!-- <style>
-								.image.main video {
-								  width: 100%;
-								  height: auto;
-								}
-							  </style>
-							<span class="image main">
-								<video controls>
-								  <source src="videos/generative-art-2.mp4" type="video/mp4">
-								  Your browser does not support the video tag.
-								</video>
-							  </span>
-							<h2> Conclusion </h2>
-							<p>Zooming back out to the bigger picture, it is very common for art to not turn out the way we initially envisioned it to be. This project taught me the hurdles and the ways we try to work around it, comprises the art. I find that, in the end, the artwork represented something that was more authentic to me. Seeing our makeshift installation come to life, I felt a visceral sense of wonder seeing my artwork light up amongst others.</p>
 							<p>The technical specification can be found <a href="https://github.com/laurafelicia/laurafelicia.github.io/tree/main/module-1">here.</a></p> -->
 						</div>
 					</div>
